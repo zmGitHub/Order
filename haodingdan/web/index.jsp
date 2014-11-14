@@ -12,6 +12,5 @@
   </head>
   <body>
         <a href="${pageContext.request.contextPath }/Test_add.action">测试</a>
-  hello
   </body>
 </html>
