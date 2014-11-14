@@ -22,7 +22,11 @@
         <property name="hibernate.show_sql">true</property>
 
         <!--实体注册-->
-        <mapping class="com.haodingdan.bean.TestHibernate"></mapping>
+        <mapping class="com.haodingdan.bean.User"></mapping>
+        <mapping class="com.haodingdan.bean.Recruit"></mapping>
+        <mapping class="com.haodingdan.bean.UnitsCatagory"></mapping>
+        <mapping class="com.haodingdan.bean.Job"></mapping>
+        <mapping class="com.haodingdan.bean.JobArticle"></mapping>
 
     </session-factory>
 </hibernate-configuration>
