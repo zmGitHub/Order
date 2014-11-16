@@ -1,5 +1,8 @@
 package com.haodingdan.bean;
 
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -9,6 +12,8 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "user")
+@DynamicInsert(true)
+@DynamicUpdate(true)
 public class User implements Serializable {
     private Integer id;
     private String name;

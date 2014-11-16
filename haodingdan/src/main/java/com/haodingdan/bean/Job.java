@@ -12,7 +12,7 @@ import java.io.Serializable;
 public class Job implements Serializable{
     private Integer id;
     private String name;
-    private Recruit recruit;
+    private UnitsCatagory unitsCatagory;
 
     @Id
     @Column(name = "id")
@@ -35,12 +35,12 @@ public class Job implements Serializable{
     }
 
     @ManyToOne(cascade = CascadeType.MERGE,optional = false)
-    @JoinColumn(name = "rid",referencedColumnName = "id")
-    public Recruit getRecruit() {
-        return recruit;
+    @JoinColumn(name = "uid",referencedColumnName = "id")
+    public UnitsCatagory getUnitsCatagory() {
+        return unitsCatagory;
     }
 
-    public void setRecruit(Recruit recruit) {
-        this.recruit = recruit;
+    public void setUnitsCatagory(Recruit recruit) {
+        this.unitsCatagory = unitsCatagory;
     }
 }

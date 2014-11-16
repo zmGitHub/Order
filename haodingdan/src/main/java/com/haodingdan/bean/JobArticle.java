@@ -1,5 +1,8 @@
 package com.haodingdan.bean;
 
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -10,6 +13,8 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "jobarticle")
+@DynamicInsert(true)
+@DynamicUpdate(true)
 public class JobArticle implements Serializable {
     private Integer id;
     private String title;
@@ -17,6 +22,7 @@ public class JobArticle implements Serializable {
     private String details;//描述
     private Date pubishTime;//发布时间
     private String address;//地址
+    private Job job;
 
     @Id
     @Column(name = "id")
@@ -72,5 +78,15 @@ public class JobArticle implements Serializable {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    @ManyToOne(cascade = CascadeType.MERGE,optional = false)
+    @JoinColumn(name = "jid",referencedColumnName = "id")
+    public Job getJob() {
+        return job;
+    }
+
+    public void setJob(Job job) {
+        this.job = job;
     }
 }
